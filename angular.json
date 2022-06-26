@@ -33,7 +33,7 @@
             ],
             "styles": [
               {
-                "input": "node_modules/flag-icon-css/sass/flag-icon.scss"
+                "input": "node_modules/flag-icons/sass/flag-icons.scss"
               },
               {
                 "input": "src/theme/variables.scss"

@@ -1,24 +1,33 @@
 # Interstellus Ionic International Telephone Input
 
-An Ionic component for International Phone Number Input, that allows all countries, validation with google phone lib, limited countries, preferred countries, virtual scrolling and much more.
+An Ionic component for International Phone Number Input, that allows all countries, validation with google phone lib, limited countries, preferred countries.
 
 ## Contents
 - [Interstellus Ionic International Telephone Input](#interstellus-ionic-international-telephone-input)
-  * [Contents](#Contents)
-  * [Supported Ionic versions](#Supported-Ionic-Versions)
-  * [Getting Started](#Getting-Started)
-    + [Step 1: Install it.](#Step-1-Install-it)
-    + [Step 2: Import it.](#Step-2-Import-it)
-    + [Step 3: Add it to template.](#Step-3-Add-it-to-template)
-    + [Step 4: Configure it.](#Step-4-Configure-it)
-    + [Step 5: Add validation.](#Step-5-Add-validation)
-  * [Options](#Options)
-  * [Events](#Events)
-  * [Contributing](#Contributing)
-  * [Versioning](#Versioning)
-  * [Authors](#Authors)
-  * [License](#License)
-  * [Acknowledgments](#Acknowledgments)
+  - [Contents](#contents)
+  - [Supported Ionic Versions](#supported-ionic-versions)
+  - [Getting Started](#getting-started)
+    - [Step 1: Install it.](#step-1-install-it)
+      - [Install Independently](#install-independently)
+      - [Or Install with All dependencies](#or-install-with-all-dependencies)
+      - [Add flag styles](#add-flag-styles)
+    - [Step 2: Import it.](#step-2-import-it)
+    - [Step 3: Add it to template.](#step-3-add-it-to-template)
+      - [a. Usage with Template Driven Forms](#a-usage-with-template-driven-forms)
+      - [b. Usage with Reactive Forms](#b-usage-with-reactive-forms)
+    - [Step 4: Configure it.](#step-4-configure-it)
+      - [a. Usage with Template Driven Forms](#a-usage-with-template-driven-forms-1)
+      - [b. Usage with Reactive Forms](#b-usage-with-reactive-forms-1)
+    - [Step 5: Add validation.](#step-5-add-validation)
+      - [a. Usage with Template Driven Forms](#a-usage-with-template-driven-forms-2)
+      - [b. Usage with Reactive Forms](#b-usage-with-reactive-forms-2)
+  - [Options](#options)
+  - [Events](#events)
+  - [Contributing](#contributing)
+  - [Versioning](#versioning)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
 
 ## Supported Ionic Versions
@@ -35,7 +44,7 @@ npm install ion-intl-tel-input --save
 
 #### Or Install with All dependencies
 ```
-npm install ion-intl-tel-input ionic-selectable flag-icons google-libphonenumber --save
+npm install ion-intl-tel-input flag-icons google-libphonenumber --save
 ```
 
 #### Add flag styles
@@ -113,24 +122,11 @@ export class HomePageModule { }
 
 #### a. Usage with Template Driven Forms
 ```
-import { IonIntlTelInputModel } from 'ion-intl-tel-input';
-
-phone: IonIntlTelInputModel = {
-  dialCode: '+92',
-  internationalNumber: '+92 300 1234567',
-  isoCode: 'pk',
-  nationalNumber: '300 1234567'
-};
 
 @Component({ ... })
 export class HomePage {
 
-  phoneNumber = {
-    dialCode: '+92',
-    internationalNumber: '+92 300 1234567',
-    isoCode: 'pk',
-    nationalNumber: '300 1234567'
-  };
+  phoneNumber: '+92 300 1234567';
 
   constructor() { }
 }
@@ -143,13 +139,7 @@ import { IonIntlTelInputModel } from 'ion-intl-tel-input';
 @Component({ ... })
 export class HomePage implements OnInit {
 
-  phone: IonIntlTelInputModel = {
-    dialCode: '+92',
-    internationalNumber: '+92 300 1234567',
-    isoCode: 'pk',
-    nationalNumber: '300 1234567'
-  };
-  formValue = {phoneNumber: this.phone};
+  phone: '+92 300 1234567',
   form: FormGroup;
 
   constructor() { }
@@ -157,7 +147,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       phoneNumber: new FormControl({
-        value: this.formValue.phoneNumber
+        value: phone
       })
     });
   }
@@ -226,13 +216,7 @@ import { IonIntlTelInputValidators } from 'is-ion-intl-tel-input';
 @Component({ ... })
 export class HomePage implements OnInit {
 
-  phone: IonIntlTelInputModel = {
-    dialCode: '+92',
-    internationalNumber: '+92 300 1234567',
-    isoCode: 'pk',
-    nationalNumber: '300 1234567'
-  };
-  formValue = {phoneNumber: this.phone};
+  phone: '+92 300 1234567',
   form: FormGroup;
 
   constructor() { }
@@ -240,7 +224,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       phoneNumber: new FormControl({
-        value: this.formValue.phoneNumber
+        value: phone
       }, [
         Validators.required,
         IonIntlTelInputValidators.phone
@@ -305,6 +289,7 @@ We use [SemVer](http://semver.org/) for versioning.
 ## Authors
 
 * **Azzam Asghar** - *Initial work* - [Azzam Asghar](https://github.com/azzamasghar1)
+* **Steve Drew** - *Version 2.0*- [sjdrew](https://github.com/sjdrew)
 
 See also the list of [contributors](https://github.com/azzamasghar1/is-ion-intl-tel-input/contributors) who participated in this project.
 
@@ -315,7 +300,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) f
 ## Acknowledgments
 
 This project would never have been possible without the following great plugins:
-* [Ionic Selectable](https://github.com/eakoriakin/ionic-selectable) by [@eakoriakin](https://github.com/eakoriakin) 
+
 * [International Telephone Input for Angular (NgxIntlTelInput)](https://github.com/webcat12345/ngx-intl-tel-input) by [@webcat12345](https://github.com/webcat12345)
 * [flag-icon-css](https://github.com/lipis/flag-icon-css) by [@lipis](https://github.com/lipis)
 

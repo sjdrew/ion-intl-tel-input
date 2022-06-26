@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
-import { IonIntlTelInputModel } from 'ion-intl-tel-input';
 
 @Component({
   selector: 'app-home',
@@ -11,18 +10,12 @@ import { IonIntlTelInputModel } from 'ion-intl-tel-input';
 })
 export class HomePage implements OnInit {
 
-  phone: IonIntlTelInputModel = {
-    dialCode: '+92',
-    internationalNumber: '+92 300 1234567',
-    isoCode: 'pk',
-    nationalNumber: '300 1234567'
-  };
-  formValue = {phoneNumber: this.phone, test: ''};
+  phone = '+92 300 1234567';
   form: FormGroup;
 
-  defaultCountryIsoTest = 'pk';
+  defaultCountryIsoTest = 'ca';
   dialCodePrefix = '+';
-  enableAutoCountrySelect = false;
+  enableAutoCountrySelect = true;
   enablePlaceholder = true;
   fallbackPlaceholder = '';
   inputPlaceholder = '';
@@ -37,7 +30,7 @@ export class HomePage implements OnInit {
   modalShouldFocusSearchbar = true;
   modalSearchFailText = 'No countries found.';
   onlyCountries = [];
-  preferredCountries = [];
+  preferredCountries = ['ca','us'];
   selectFirstCountry = true;
   separateDialCode = true;
 
@@ -48,14 +41,17 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       phoneNumber: new FormControl({
-        value: /* null */this.formValue.phoneNumber,
+        value:  '+14036053001', //this.phone,
+      //  value: '+923001234567',
+      //  value: '+61423232324',
         disabled: this.disableTest
       }, [
-        Validators.required,
+      //  Validators.required,
         IonIntlTelInputValidators.phone
       ])
     });
   }
+
 
   logPhone() {
     console.log(this.phone);
@@ -64,7 +60,7 @@ export class HomePage implements OnInit {
   get phoneNumber() { return this.form.get('phoneNumber'); }
 
   onSubmit() {
-    console.log(this.phoneNumber);
+  //  console.log(this.phoneNumber);
     console.log(this.phoneNumber.value);
   }
 
