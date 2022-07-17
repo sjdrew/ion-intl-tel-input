@@ -83,6 +83,15 @@ export class IonIntlTelInputComponent
      autocomplete = 'off';
 
     /**
+     * required, passed onto ion-input so we can be accessiblity compliant
+     *
+     * @default false
+     * @memberof IonIntlTelInputComponent
+     */
+     @Input()
+     required = false;     
+
+    /**
      * Iso Code of default selected Country.
      * See more on.
      *
