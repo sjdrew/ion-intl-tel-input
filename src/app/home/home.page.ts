@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 
 import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
 
@@ -11,7 +11,7 @@ import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
 export class HomePage implements OnInit {
 
   phone = '+92 300 1234567';
-  form: FormGroup;
+  form: UntypedFormGroup;
 
   defaultCountryIsoTest = 'ca';
   dialCodePrefix = '+';
@@ -39,8 +39,8 @@ export class HomePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      phoneNumber: new FormControl({
+    this.form = new UntypedFormGroup({
+      phoneNumber: new UntypedFormControl({
         value:  '+14036053001', //this.phone,
       //  value: '+923001234567',
       //  value: '+61423232324',
