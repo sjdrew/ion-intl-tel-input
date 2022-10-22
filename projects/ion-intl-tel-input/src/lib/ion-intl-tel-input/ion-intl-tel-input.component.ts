@@ -475,7 +475,16 @@ export class IonIntlTelInputComponent
             try {
                 googleNumber = this.phoneUtil.parse(value, null);
             } catch (e) {
-
+            }
+            if (!googleNumber) {
+                // If failed to parse, try adding a +1 and see if valid
+                if (value.length >= 10 && value.indexOf('+') == -1) {
+                    let v = '+1'+value;
+                    googleNumber = this.phoneUtil.parse(v, null);
+                }
+            }
+            if (!googleNumber) {
+                console.log('Warning: failed to parse number: ',value);
             }
             if (googleNumber) {
                 let isoCode = googleNumber && googleNumber.getCountryCode()
@@ -733,6 +742,7 @@ export class IonIntlTelInputComponent
                 return country;
             }
         }
+        console.error('tel: unknown country iso code: ',isoCode);
         return;
     }
 

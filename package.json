@@ -43,11 +43,11 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build ion-intl-tel-input",
-    "prepare": "npm run build_lib && mv dist/ion-intl-tel-input/* ./",
+    "prepare": "npm run build_lib",
     "serve_lib": "ng build ion-intl-tel-input --watch",
-    "npm_pack": "cd dist/ion-intl-tel-input && npm pack",
+    "npm_pack": "cd dist && npm pack",
     "package": "npm run build_lib && npm run npm_pack",
-    "publish": "npm run package && cd dist/ion-intl-tel-input && npm publish"
+    "publish": "npm run package && cd dist && npm publish"
   },
   "dependencies": {
     "@angular-devkit/build-ng-packagr": "^0.1002.0",
