@@ -470,7 +470,7 @@ export class IonIntlTelInputComponent
 
     fillValues(value: string) {
         if (value && typeof value === 'string') {
-
+           
             let googleNumber: PhoneNumber;
             try {
                 googleNumber = this.phoneUtil.parse(value, null);
