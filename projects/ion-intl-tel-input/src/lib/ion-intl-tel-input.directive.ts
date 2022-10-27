@@ -16,11 +16,27 @@ export class IonIntlTelInputValidators {
             try {
                 phoneNumber = PhoneNumberUtil.getInstance().parse(control.value, null);
                 if (PhoneNumberUtil.getInstance().isValidNumber(phoneNumber)) {
+                    console.log('validate ok')
                     return null;
                 }
-                return error;
             } catch (e) {
-                return error;
+                phoneNumber = null;
+            }
+
+            if (!phoneNumber) {
+                try {
+                    // If failed to parse, try adding a +1 and see if valid
+                    if (control.value.length >= 10 && control.value.indexOf('+') == -1) {
+                        let v = '+1'+control.value;
+                        phoneNumber = PhoneNumberUtil.getInstance().parse(v, null);
+                        if (PhoneNumberUtil.getInstance().isValidNumber(phoneNumber)) {
+                            return null;
+                        }
+                    }
+                }
+                catch (e) {
+                    return error;
+                }
             }
         }
 

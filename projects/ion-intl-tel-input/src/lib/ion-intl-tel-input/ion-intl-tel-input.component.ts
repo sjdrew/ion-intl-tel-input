@@ -470,7 +470,6 @@ export class IonIntlTelInputComponent
 
     fillValues(value: string) {
         if (value && typeof value === 'string') {
-           
             let googleNumber: PhoneNumber;
             try {
                 googleNumber = this.phoneUtil.parse(value, null);
@@ -481,12 +480,6 @@ export class IonIntlTelInputComponent
                 if (value.length >= 10 && value.indexOf('+') == -1) {
                     let v = '+1'+value;
                     googleNumber = this.phoneUtil.parse(v, null);
-                    if (googleNumber) {
-                        // so that validators know about the change we made
-                        this.value = v;  
-                        this.onCodeChange();   
-                        console.log('corrected phone value to: ',this.value);                   
-                    }
                 }
             }
             if (!googleNumber) {
@@ -573,7 +566,6 @@ export class IonIntlTelInputComponent
             if (this.separateDialCode && internationallNo) {
                 this.phoneNumber = this.removeDialCode(internationallNo);
             }
-
             this.emitValueChange(internationallNo);
 
             this.codeChange.emit();
