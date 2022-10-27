@@ -481,6 +481,11 @@ export class IonIntlTelInputComponent
                 if (value.length >= 10 && value.indexOf('+') == -1) {
                     let v = '+1'+value;
                     googleNumber = this.phoneUtil.parse(v, null);
+                    if (googleNumber) {
+                        // so that validators know about the change we made
+                        this.value = v;  
+                        this.onCodeChange();                   
+                    }
                 }
             }
             if (!googleNumber) {
