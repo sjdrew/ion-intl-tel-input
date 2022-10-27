@@ -484,7 +484,8 @@ export class IonIntlTelInputComponent
                     if (googleNumber) {
                         // so that validators know about the change we made
                         this.value = v;  
-                        this.onCodeChange();                   
+                        this.onCodeChange();   
+                        console.log('corrected phone value to: ',this.value);                   
                     }
                 }
             }
