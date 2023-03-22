@@ -16,7 +16,6 @@ export class IonIntlTelInputValidators {
             try {
                 phoneNumber = PhoneNumberUtil.getInstance().parse(control.value, null);
                 if (PhoneNumberUtil.getInstance().isValidNumber(phoneNumber)) {
-                    console.log('validate ok')
                     return null;
                 }
             } catch (e) {
