@@ -168,7 +168,7 @@
       "prefix": "",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "tsConfig": "projects/ion-intl-tel-input/tsconfig.lib.json",
             "project": "projects/ion-intl-tel-input/ng-package.json"
