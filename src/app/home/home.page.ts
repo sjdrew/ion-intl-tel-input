@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
+import { IonIntlTelInputValidators } from 'projects/ion-intl-tel-input/src/public-api';
 
-import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
+//import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
 
 @Component({
   selector: 'app-home',

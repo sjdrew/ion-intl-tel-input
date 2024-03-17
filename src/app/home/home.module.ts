@@ -4,9 +4,8 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { IonIntlTelInputModule } from 'ion-intl-tel-input';
-
 import { HomePage } from './home.page';
+import { IonIntlTelInputModule } from 'projects/ion-intl-tel-input/src/public-api';
 
 @NgModule({
   imports: [
