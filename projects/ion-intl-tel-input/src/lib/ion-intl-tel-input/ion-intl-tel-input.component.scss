@@ -1,21 +1,80 @@
 :host {
     width: 100%;
-    display: flex;
-    align-items:center;
-    
+    contain: layout;
+    display: block;
+   
     ion-button {
         color: var(--ion-color);
-        height: 100%;
         margin: 0px;
-    }    
+        margin-left:15px;
+        position: absolute;
+        z-index: 3;
+    }        
+    ::ng-deep div.native-wrapper  {
+        padding-left: 80px;
+    }
     ion-button::part(native) {
         padding-inline-start: 0px;
         padding-inline-end: 2px;
         margin: 0px;
-        font-size: 16px;
         font-weight: normal;
     }
     .fi {
         margin-right: 5px;
+    }
+}
+
+// ion-item with v7 format label property
+::ng-deep ion-item > ion-intl-tel-input:has(div > ion-input > label)  {
+    ion-button {
+        top: 24px !important // note may need scale as depends on font size
+    }
+    .label-floating label.input-wrapper div.label-text-wrapper.sc-ion-input-md  {
+        transform: translateY(15%) scale(0.75) !important;
+    }
+    div.native-wrapper  {
+        padding-left: 94px !important;
+    }
+}
+
+// v7 ion-input only, but no [fill]
+::ng-deep :not(ion-item) > ion-intl-tel-input {
+    ion-button {
+        top: 20px !important // note may need scale as depends on font size
+    }
+    div.native-wrapper  {
+        padding-left: 100px !important;
+    }    
+}
+
+// v7 ion-input only,  [fill]='outline'
+::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-outline) {
+    ion-button {
+        top: 10px !important // note may need scale as depends on font size
+    }
+    div.native-wrapper  {
+        padding-left: 84px !important;
+    }    
+}
+
+// v7 ion-input only,  [fill]='solid'
+::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-solid) {
+    ion-button {
+        top: 20px !important // note may need scale as depends on font size
+    } 
+    div.native-wrapper  {
+        padding-left: 84px !important;
+    }   
+}
+
+// ion-item with ion-label (legacy mode), use flex as ion-label tag is the wrapper
+::ng-deep ion-item > ion-intl-tel-input:has(.legacy-input) {
+    contain:inherit;
+    width: 100%;
+    display: flex !important;
+    align-items: center;
+    ion-button {
+       position:unset !important;
+       top: unset;
     }
 }

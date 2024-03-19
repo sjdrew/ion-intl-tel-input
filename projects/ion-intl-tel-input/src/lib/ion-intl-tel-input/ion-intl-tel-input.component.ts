@@ -306,6 +306,28 @@ export class IonIntlTelInputComponent
     separateDialCode = true;
 
     /**
+     * label text
+     * 
+     * @memberof IonIntlTelInputComponent
+     */
+    @Input() label;
+
+    /**
+     * labelplacement
+     * 
+     * @memberof IonIntlTelInputComponent
+     */
+    @Input() labelPlacement;
+
+
+    /**
+     * fill
+     * 
+     * @memberof IonIntlTelInputComponent
+     */
+    @Input() fill;
+
+    /**
      * Fires when the Phone number Input is changed.
      * See more on.
      *

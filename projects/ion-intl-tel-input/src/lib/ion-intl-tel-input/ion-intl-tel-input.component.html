@@ -1,5 +1,6 @@
 <ion-button 
     fill="clear" 
+    mode="md"
     class="ion-intl-tel-input-btn"
     [disabled] = "disabled"
     aria-label="country"
@@ -11,6 +12,10 @@
 <div class="ion-intl-tel-input-number">
   <ion-input
     #numberInput
+
+    [fill]="fill"
+    [label]="label"
+    [labelPlacement]="labelPlacement"
     [(ngModel)]="phoneNumber"
     [autocomplete]="autocomplete"
     [required]="required"

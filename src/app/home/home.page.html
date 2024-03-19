@@ -7,65 +7,128 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <h3>Template Driven Forms</h3>
-    <ion-list lines="full" class="ion-no-margin ion-no-padding ion-margin-bottom">
-      <ion-item>
-        <ion-label position="stacked">Tel Input</ion-label>
-        <ion-intl-tel-input 
-          id="phone" 
-          name="phone" 
-          [(ngModel)]="phone" 
-          #phoneControl="ngModel"
-          required
-          ionIntlTelInputValid
-          [defaultCountryiso]="defaultCountryIsoTest"
-          [dialCodePrefix]= "dialCodePrefix"
-          [enableAutoCountrySelect]="enableAutoCountrySelect"
-          [enablePlaceholder]="enablePlaceholder"
-          [fallbackPlaceholder]="fallbackPlaceholder"
-          [inputPlaceholder]="inputPlaceholder"
-          [maxLength]= "maxLength"
-          [modalTitle]="modalTitle"
-          [modalCssClass]="modalCssClass"
-          [modalSearchPlaceholder]="modalSearchPlaceholder"
-          [modalCloseText]="modalCloseText"
-          [modalCloseButtonSlot]= "modalCloseButtonSlot"
-          [modalCanSearch]="modalCanSearch"
-          [modalShouldBackdropClose]="modalShouldBackdropClose"
-          [modalShouldFocusSearchbar]="modalShouldFocusSearchbar"
-          [modalSearchFailText]="modalSearchFailText"
-          [onlyCountries]= "onlyCountries"
-          [preferredCountries]="preferredCountries"
-          [selectFirstCountry]="selectFirstCountry"
-          [separateDialCode]="separateDialCode"
-        >
-        </ion-intl-tel-input>
-      </ion-item>
 
-      <div *ngIf="phoneControl.invalid && phoneControl.touched">
-        <ion-text color="danger" *ngIf="phoneControl.errors.required">
-          <p class="ion-no-margin"><sub>Phone is required.</sub></p>
-        </ion-text>
-        <ion-text color="danger" *ngIf="phoneControl.errors.phone">
-          <p class="ion-no-margin"><sub>Phone is not valid.</sub></p>
-        </ion-text>
-      </div>
+    <div style="width:430px">
 
-      <div class="ion-text-center">
-        <ion-button fill="solid" type="button" (click)="logPhone()">
-          Submit
-        </ion-button>
-      </div>
-    </ion-list>
+        <ion-card>
+        <ion-card-header>
+        <ion-card-title>Template Driven Form</ion-card-title>
+        </ion-card-header>
 
-    <h3 class="ion-margin-top">Reactive Forms</h3>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <ion-list lines="full" class="ion-no-margin ion-no-padding ion-margin-bottom">
+        <ion-card-content>
         <ion-item>
-          <ion-label position="stacked">Tel Input</ion-label>
-          <ion-intl-tel-input 
+            <ion-input label="Text: ion-item wrapped" value="ABC123" labelPlacement="stacked"></ion-input>
+        </ion-item>
+
+        <ion-input label="Text: non ion-item wrapped" value="ABC123" labelPlacement="stacked"></ion-input>
+        <br>
+
+        <ion-item>
+            <ion-label position="stacked">Tel: using item/ion-label (deprecated)</ion-label>
+            <ion-intl-tel-input 
+            name="phone2" 
+            [(ngModel)]="phone2" 
+            #phoneControl="ngModel"
+            required
+            ionIntlTelInputValid
+            [defaultCountryiso]="defaultCountryIsoTest"
+            [dialCodePrefix]= "dialCodePrefix"
+            [enableAutoCountrySelect]="enableAutoCountrySelect"
+            [enablePlaceholder]="enablePlaceholder"
+            [fallbackPlaceholder]="fallbackPlaceholder"
+            [inputPlaceholder]="inputPlaceholder"
+            [maxLength]= "maxLength"
+            [modalTitle]="modalTitle"
+            [modalCssClass]="modalCssClass"
+            [modalSearchPlaceholder]="modalSearchPlaceholder"
+            [modalCloseText]="modalCloseText"
+            [modalCloseButtonSlot]= "modalCloseButtonSlot"
+            [modalCanSearch]="modalCanSearch"
+            [modalShouldBackdropClose]="modalShouldBackdropClose"
+            [modalShouldFocusSearchbar]="modalShouldFocusSearchbar"
+            [modalSearchFailText]="modalSearchFailText"
+            [onlyCountries]="['ca','us']"
+            [preferredCountries]="preferredCountries"
+            [selectFirstCountry]="selectFirstCountry"
+            [separateDialCode]="separateDialCode"
+            >
+            </ion-intl-tel-input>
+        </ion-item>
+
+        <div *ngIf="phoneControl.invalid && phoneControl.touched">
+            <ion-text color="danger" *ngIf="phoneControl.errors.required">
+            <p class="ion-no-margin"><sub>Phone is required.</sub></p>
+            </ion-text>
+            <ion-text color="danger" *ngIf="phoneControl.errors.phone">
+            <p class="ion-no-margin"><sub>Phone is not valid.</sub></p>
+            </ion-text>
+        </div>
+
+        <ion-item>
+            <ion-intl-tel-input 
+            id="phone" 
+            name="phone" 
+            [(ngModel)]="phone" 
+            #phoneControl="ngModel"
+            required
+            ionIntlTelInputValid
+            [label]="'Tel: v7 with ion-item'"
+            [labelPlacement]="'stacked'"
+            [defaultCountryiso]="defaultCountryIsoTest"
+            [dialCodePrefix]= "dialCodePrefix"
+            [enableAutoCountrySelect]="enableAutoCountrySelect"
+            [enablePlaceholder]="enablePlaceholder"
+            [fallbackPlaceholder]="fallbackPlaceholder"
+            [inputPlaceholder]="inputPlaceholder"
+            [maxLength]= "maxLength"
+            [modalTitle]="modalTitle"
+            [modalCssClass]="modalCssClass"
+            [modalSearchPlaceholder]="modalSearchPlaceholder"
+            [modalCloseText]="modalCloseText"
+            [modalCloseButtonSlot]= "modalCloseButtonSlot"
+            [modalCanSearch]="modalCanSearch"
+            [modalShouldBackdropClose]="modalShouldBackdropClose"
+            [modalShouldFocusSearchbar]="modalShouldFocusSearchbar"
+            [modalSearchFailText]="modalSearchFailText"
+            [preferredCountries]="preferredCountries"
+            [selectFirstCountry]="selectFirstCountry"
+            [separateDialCode]="separateDialCode"
+            >
+            </ion-intl-tel-input>
+        </ion-item>
+ 
+        <ion-toolbar color="transparent">
+            <ion-buttons slot="end">
+                <ion-button fill="solid" color="primary" type="button" (click)="logPhone()">
+                Submit
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>       
+
+        </ion-card-content>
+
+        </ion-card>
+
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" style="width:430px">
+
+        <ion-card>
+
+            <ion-card-header>
+                <ion-card-title>Reactive Form</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+           
+        <ion-input [fill]="'outline'"  labelPlacement="stacked" label="Test plain input field"></ion-input>
+
+        <br>
+        <ion-intl-tel-input 
             formControlName="phoneNumber"
+            [fill]="'outline'"
+            [label]="'Tel: v7 outline mode'"
+            [labelPlacement]="'stacked'"
             [defaultCountryiso]="defaultCountryIsoTest"
             [dialCodePrefix]= "dialCodePrefix"
             [enableAutoCountrySelect]="enableAutoCountrySelect"
@@ -88,8 +151,8 @@
             [selectFirstCountry]="selectFirstCountry"
             [separateDialCode]="separateDialCode"
           >
-          </ion-intl-tel-input>
-        </ion-item>
+        </ion-intl-tel-input>
+
 
         <div *ngIf="phoneNumber.invalid && phoneNumber.touched">
           <ion-text color="danger" *ngIf="phoneNumber.errors.required">
@@ -99,14 +162,83 @@
             <p class="ion-no-margin"><sub>Phone number is not valid.</sub></p>
           </ion-text>
         </div>
-      </ion-list>
 
-      <div class="ion-text-center">
-        <ion-button fill="solid" type="submit">
-          Submit
-        </ion-button>
-      </div>
+        <br>
+
+        <ion-input label="Text: non ion-item" labelPlacement="stacked"></ion-input>
+        <br>
+
+        <ion-intl-tel-input 
+          formControlName="phoneNumber2"
+          required
+          ionIntlTelInputValid
+          [label]="'Tel: v7, no fill'"
+          [labelPlacement]="'stacked'"
+          [defaultCountryiso]="defaultCountryIsoTest"
+          [dialCodePrefix]= "dialCodePrefix"
+          [enableAutoCountrySelect]="enableAutoCountrySelect"
+          [enablePlaceholder]="enablePlaceholder"
+          [fallbackPlaceholder]="fallbackPlaceholder"
+          [inputPlaceholder]="inputPlaceholder"
+          [maxLength]= "maxLength"
+          [modalTitle]="modalTitle"
+          [modalCssClass]="modalCssClass"
+          [modalSearchPlaceholder]="modalSearchPlaceholder"
+          [modalCloseText]="modalCloseText"
+          [modalCloseButtonSlot]= "modalCloseButtonSlot"
+          [modalCanSearch]="modalCanSearch"
+          [modalShouldBackdropClose]="modalShouldBackdropClose"
+          [modalShouldFocusSearchbar]="modalShouldFocusSearchbar"
+          [modalSearchFailText]="modalSearchFailText"
+          [onlyCountries]= "onlyCountries"
+          [preferredCountries]="preferredCountries"
+          [selectFirstCountry]="selectFirstCountry"
+          [separateDialCode]="separateDialCode"
+        >
+        </ion-intl-tel-input>
+        <br>
+
+        <ion-intl-tel-input 
+          formControlName="phoneNumber3"
+          required
+          ionIntlTelInputValid
+          [label]="'Tel: v7 fill solid'"
+          [labelPlacement]="'stacked'"
+          [fill]="'solid'"
+          [defaultCountryiso]="defaultCountryIsoTest"
+          [dialCodePrefix]= "dialCodePrefix"
+          [enableAutoCountrySelect]="enableAutoCountrySelect"
+          [enablePlaceholder]="enablePlaceholder"
+          [fallbackPlaceholder]="fallbackPlaceholder"
+          [inputPlaceholder]="inputPlaceholder"
+          [maxLength]= "maxLength"
+          [modalTitle]="modalTitle"
+          [modalCssClass]="modalCssClass"
+          [modalSearchPlaceholder]="modalSearchPlaceholder"
+          [modalCloseText]="modalCloseText"
+          [modalCloseButtonSlot]= "modalCloseButtonSlot"
+          [modalCanSearch]="modalCanSearch"
+          [modalShouldBackdropClose]="modalShouldBackdropClose"
+          [modalShouldFocusSearchbar]="modalShouldFocusSearchbar"
+          [modalSearchFailText]="modalSearchFailText"
+          [onlyCountries]= "onlyCountries"
+          [preferredCountries]="preferredCountries"
+          [selectFirstCountry]="selectFirstCountry"
+          [separateDialCode]="separateDialCode"
+        >
+        </ion-intl-tel-input>
+
+            </ion-card-content>
+
+            <ion-toolbar>
+                <ion-buttons slot="end">
+                    <ion-button fill="solid" type="submit">
+                        Submit
+                      </ion-button>
+                </ion-buttons>
+            </ion-toolbar>
+        </ion-card>
+
     </form>
 
-  </div>
 </ion-content>

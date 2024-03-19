@@ -5,64 +5,75 @@ import { IonIntlTelInputValidators } from 'projects/ion-intl-tel-input/src/publi
 //import { IonIntlTelInputValidators } from 'ion-intl-tel-input';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+    selector: 'app-home',
+    templateUrl: 'home.page.html',
+    styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
 
-  phone = '+92 300 1234567';
-  form: UntypedFormGroup;
+    phone = '+92 300 1234567';
+    phone2 = '+1 403 6053099';
+    form: UntypedFormGroup;
 
-  defaultCountryIsoTest = 'ca';
-  dialCodePrefix = '+';
-  enableAutoCountrySelect = true;
-  enablePlaceholder = true;
-  fallbackPlaceholder = '';
-  inputPlaceholder = '';
-  maxLength = '15';
-  modalTitle = 'Select Country';
-  modalCssClass = '';
-  modalSearchPlaceholder = 'Enter country name';
-  modalCloseText = 'Close';
-  modalCloseButtonSlot = 'end';
-  modalCanSearch = true;
-  modalShouldBackdropClose = true;
-  modalShouldFocusSearchbar = true;
-  modalSearchFailText = 'No countries found.';
-  onlyCountries = [];
-  preferredCountries = ['ca','us'];
-  selectFirstCountry = true;
-  separateDialCode = true;
+    defaultCountryIsoTest = 'ca';
+    dialCodePrefix = '+';
+    enableAutoCountrySelect = true;
+    enablePlaceholder = true;
+    fallbackPlaceholder = '';
+    inputPlaceholder = '';
+    maxLength = '15';
+    modalTitle = 'Select Country';
+    modalCssClass = '';
+    modalSearchPlaceholder = 'Enter country name';
+    modalCloseText = 'Close';
+    modalCloseButtonSlot = 'end';
+    modalCanSearch = true;
+    modalShouldBackdropClose = true;
+    modalShouldFocusSearchbar = true;
+    modalSearchFailText = 'No countries found.';
+    onlyCountries = [];
+    preferredCountries = ['ca', 'us'];
+    selectFirstCountry = true;
+    separateDialCode = true;
 
-  disableTest = false;
+    disableTest = false;
 
-  constructor() { }
+    constructor() { }
 
-  ngOnInit() {
-    this.form = new UntypedFormGroup({
-      phoneNumber: new UntypedFormControl({
-        value:  '+14036053001', //this.phone,
-      //  value: '+923001234567',
-      //  value: '+61423232324',
-        disabled: this.disableTest
-      }, [
-      //  Validators.required,
-        IonIntlTelInputValidators.phone
-      ])
-    });
-  }
+    ngOnInit() {
+        this.form = new UntypedFormGroup({
+            phoneNumber: new UntypedFormControl({
+                value: '+923001234567',
+                disabled: this.disableTest
+            }, [
+                //  Validators.required,
+                IonIntlTelInputValidators.phone
+            ]),
+            phoneNumber2: new UntypedFormControl({
+                value: '+140360539988'
+            }, [
+                //  Validators.required,
+                IonIntlTelInputValidators.phone
+            ]),
+            phoneNumber3: new UntypedFormControl({
+                value: ''
+            }, [
+                //  Validators.required,
+                IonIntlTelInputValidators.phone
+            ]),
+        });
+    }
 
 
-  logPhone() {
-    console.log(this.phone);
-  }
+    logPhone() {
+        console.log(this.phone);
+    }
 
-  get phoneNumber() { return this.form.get('phoneNumber'); }
+    get phoneNumber() { return this.form.get('phoneNumber'); }
 
-  onSubmit() {
-  //  console.log(this.phoneNumber);
-    console.log(this.phoneNumber.value);
-  }
+    onSubmit() {
+        //  console.log(this.phoneNumber);
+        console.log(this.phoneNumber.value);
+    }
 
 }
