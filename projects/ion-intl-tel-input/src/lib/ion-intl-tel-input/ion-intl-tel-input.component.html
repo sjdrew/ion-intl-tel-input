@@ -6,8 +6,8 @@
     aria-label="country"
     (click)="openModal()"
     >
-    <span class="ion-intl-tel-input-flag fi fi-{{country.flagClass}}"></span><span class="ion-intl-tel-input-code" *ngIf="separateDialCode">{{dialCodePrefix}}{{country.dialCode}}</span>
-    <ion-icon style="font-size:14px;opacity:.5;" name="caret-down"></ion-icon>
+    <span aria-label="Country" class="ion-intl-tel-input-flag fi fi-{{country.flagClass}}"></span><span class="ion-intl-tel-input-code" *ngIf="separateDialCode">{{dialCodePrefix}}{{country.dialCode}}</span>
+    <ion-icon aria-hidden="true" style="font-size:14px;opacity:.5;" name="caret-down"></ion-icon>
 </ion-button>
 <div class="ion-intl-tel-input-number">
   <ion-input
