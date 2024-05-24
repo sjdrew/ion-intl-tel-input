@@ -479,7 +479,10 @@ export class IonIntlTelInputComponent
                 // If failed to parse, try adding a +1 and see if valid
                 if (value.length >= 10 && value.indexOf('+') == -1) {
                     let v = '+1'+value;
-                    googleNumber = this.phoneUtil.parse(v, null);
+                    try {
+                        googleNumber = this.phoneUtil.parse(v, null);
+                    } catch(e) {
+                    }
                 }
             }
             if (!googleNumber) {
