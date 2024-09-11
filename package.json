@@ -1,5 +1,5 @@
 {
-  "version": "2.0.5",
+  "version": "2.0.6",
   "name": "ion-intl-tel-input",
   "title": "Ion Intl Tel Input",
   "description": "An Ionic component for International Phone Number Input, that allows all countries, validation with google phone lib, limited countries, preferred countries, virtual scrolling and much more.",
@@ -61,6 +61,7 @@
     "core-js": "^2.6.12",
     "flag-icons": "^6.5.1",
     "google-libphonenumber": "^3.2.28",
+    "ion-intl-tel-input": "file:dist/ion-intl-tel-input-2.0.6.tgz",
     "rxjs": "^7.8.0",
     "tslib": "^2.4.0",
     "zone.js": "~0.14.1"

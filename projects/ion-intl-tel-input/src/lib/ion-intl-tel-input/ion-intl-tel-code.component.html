@@ -16,8 +16,8 @@
 <ion-content>
     <ion-list>
         <ion-radio-group [value]="country.isoCode">
-            <ion-item style="white-space:normal" *ngFor="let c of countries">
-                <ion-radio [value]="c.isoCode" slot="start" color="primary" (click)="itemTapped(c)"></ion-radio>
+            <ion-item style="white-space:normal" *ngFor="let c of countries" (click)="itemTapped(c)">
+                <ion-radio [value]="c.isoCode" slot="start" color="primary"></ion-radio>
                 <ion-label>{{c.name}} <span *ngIf="dialCode">{{dialCode}}{{c.displayDialCode}}</span></ion-label>
                 <span slot="end" class="fi fi-{{c.flagClass}}"></span>
             </ion-item>

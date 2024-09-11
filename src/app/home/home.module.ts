@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { IonIntlTelInputModule } from 'projects/ion-intl-tel-input/src/public-api';
+import { IonIntlTelInputModule } from 'dist';
 
 @NgModule({
   imports: [
