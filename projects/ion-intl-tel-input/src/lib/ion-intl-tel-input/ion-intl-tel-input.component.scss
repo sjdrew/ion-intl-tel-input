@@ -1,80 +1,126 @@
 :host {
-    width: 100%;
-    contain: layout;
-    display: block;
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+
+    // position: relative;
+    // width: 100%;
+    // contain: layout;
+    // display: block;
    
     ion-button {
         color: var(--ion-color);
-        margin: 0px;
-        margin-left:15px;
-        position: absolute;
-        z-index: 3;
+        // margin: 0px;
+        // margin-left:15px;
+        // position: absolute;
+        // z-index: 3;
     }        
-    ::ng-deep div.native-wrapper  {
-        padding-left: 80px;
-    }
+    // ::ng-deep div.native-wrapper  {
+    //     padding-left: 80px;
+    // }
     ion-button::part(native) {
         padding-inline-start: 0px;
         padding-inline-end: 2px;
         margin: 0px;
         font-weight: normal;
     }
-    .fi {
-        margin-right: 5px;
+    // .fi {
+    //     margin-right: 5px;
+    // }
+
+    // align-items: center;
+
+    .ion-intl-tel-input-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .ion-intl-tel-input-btn {
+        flex: 0 0 auto;
+        color: var(--ion-color);
+        // border: 1px solid blue;
+        margin-right: 10px;
+
+        .ion-intl-tel-input-flag {
+            // border: 1px solid yellow;
+        }
+        .ion-intl-tel-input-code {
+            // border: 1px solid pink;
+        }
+        ion-icon {
+            // border: 1px solid purple;
+        }
+    }
+
+    .ion-intl-tel-input-number {
+        flex: 0 0 auto;
+        // border: 1px solid green;
+        // padding-left: 80px;
+        ion-input {
+            // border: 1px solid orange;
+            // padding-left: 80px;
+            // min-height: 1em;
+        }
     }
 }
+
+::ng-deep ion-intl-tel-input div > ion-input > label > .label-text-wrapper > .label-text  {
+    // display: none;
+}
+
 
 // ion-item with v7 format label property
-::ng-deep ion-item > ion-intl-tel-input:has(div > ion-input > label)  {
-    ion-button {
-        top: 24px !important // note may need scale as depends on font size
-    }
-    .label-floating label.input-wrapper div.label-text-wrapper.sc-ion-input-md  {
-        transform: translateY(15%) scale(0.75) !important;
-    }
-    div.native-wrapper  {
-        padding-left: 94px !important;
-    }
-}
+// ::ng-deep ion-item > ion-intl-tel-input:has(div > ion-input > label)  {
+//     ion-button {
+//         top: 24px !important // note may need scale as depends on font size
+//     }
+//     .label-floating label.input-wrapper div.label-text-wrapper.sc-ion-input-md  {
+//         transform: translateY(15%) scale(0.75) !important;
+//     }
+//     div.native-wrapper  {
+//         padding-left: 94px !important;
+//     }
+// }
+
 
 // v7 ion-input only, but no [fill]
-::ng-deep :not(ion-item) > ion-intl-tel-input {
-    ion-button {
-        top: 20px !important // note may need scale as depends on font size
-    }
-    div.native-wrapper  {
-        padding-left: 100px !important;
-    }    
-}
+// ::ng-deep :not(ion-item) > ion-intl-tel-input {
+//     ion-button {
+//         top: 20px !important // note may need scale as depends on font size
+//     }
+//     div.native-wrapper  {
+//         padding-left: 100px !important;
+//     }    
+// }
 
 // v7 ion-input only,  [fill]='outline'
-::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-outline) {
-    ion-button {
-        top: 10px !important // note may need scale as depends on font size
-    }
-    div.native-wrapper  {
-        padding-left: 84px !important;
-    }    
-}
+// ::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-outline) {
+//     ion-button {
+//         top: 10px !important // note may need scale as depends on font size
+//     }
+//     div.native-wrapper  {
+//         padding-left: 84px !important;
+//     }    
+// }
 
 // v7 ion-input only,  [fill]='solid'
-::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-solid) {
-    ion-button {
-        top: 20px !important // note may need scale as depends on font size
-    } 
-    div.native-wrapper  {
-        padding-left: 84px !important;
-    }   
-}
+// ::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-solid) {
+//     ion-button {
+//         top: 20px !important // note may need scale as depends on font size
+//     } 
+//     div.native-wrapper  {
+//         padding-left: 84px !important;
+//     }   
+// }
 
 // ion-item with ion-label (legacy mode), use flex as ion-label tag is the wrapper
-::ng-deep ion-item > ion-intl-tel-input:has(.legacy-input) {
-    contain:inherit;
-    width: 100%;
-    display: flex !important;
-    align-items: center;
-    ion-button {
-       position:unset !important;
-       top: unset;
-    }
-}
+// ::ng-deep ion-item > ion-intl-tel-input:has(.legacy-input) {
+//     contain:inherit;
+//     width: 100%;
+//     display: flex !important;
+//     align-items: center;
+//     ion-button {
+//        position:unset !important;
+//        top: unset;
+//     }
+// }
