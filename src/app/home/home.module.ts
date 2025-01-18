@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
+import { HomePage } from './home.page';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
 import { IonIntlTelInputModule } from 'dist';
 
 @NgModule({

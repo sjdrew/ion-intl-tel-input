@@ -11,6 +11,7 @@ import { IonIntlTelInputValidators } from 'dist';
 })
 export class HomePage implements OnInit {
 
+    isDarkMode = false;
     phone = '+92 300 1234567';
     phone2 = '+1 403 6053099';
     form: UntypedFormGroup;
@@ -50,7 +51,8 @@ export class HomePage implements OnInit {
                 IonIntlTelInputValidators.phone
             ]),
             phoneNumber2: new UntypedFormControl({
-                value: '+140360539988'
+                value: '+140360539988',
+                disabled: this.disableTest
             }, [
                 //  Validators.required,
                 IonIntlTelInputValidators.phone
@@ -71,9 +73,19 @@ export class HomePage implements OnInit {
 
     get phoneNumber() { return this.form.get('phoneNumber'); }
 
+    get phoneNumber2() { return this.form.get('phoneNumber2'); }
+
     onSubmit() {
         //  console.log(this.phoneNumber);
         console.log(this.phoneNumber.value);
     }
+
+    toggleTheme() {
+        this.isDarkMode = !this.isDarkMode;
+        // how do I add ion-palette-dark class to the html tag?
+        document.documentElement.classList.toggle('ion-palette-dark', this.isDarkMode);
+        // document.html.classList.toggle('dark', this.isDarkMode);
+    }
+    
 
 }

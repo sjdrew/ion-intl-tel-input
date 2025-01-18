@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from "@angular/core";
+import { Component, Inject, Input, OnInit, ViewChild } from "@angular/core";
 import { IonSearchbar, ModalController } from "@ionic/angular";
 import { CountryI } from "../models/country.model";
 
@@ -27,7 +27,7 @@ export class IonIntTelCodeComponent implements OnInit {
     public notFound;
 
     constructor(
-        private modalCtrl: ModalController
+        @Inject(ModalController) private modalCtrl: ModalController
     ) {
 
     }
@@ -43,7 +43,9 @@ export class IonIntTelCodeComponent implements OnInit {
     }
 
     search(ev) {
+        console.log('search', ev);
         let search = ev.detail.value;
+        console.log('search value', search);
         this.notFound = false;
         if (search === '' || search === null) {
             this.countries = this.allCountries;
