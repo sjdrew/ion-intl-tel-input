@@ -52,6 +52,7 @@ import { IonIntTelCodeComponent } from './ion-intl-tel-code.component';
 /**
  * @author Azzam Asghar <azzam.asghar@interstellus.com>
  * @author Steve Drew <sdrew@waitwell.ca>
+ * @author Doug Kneller <dkneller@waitwell.ca>
  */
 export class IonIntlTelInputComponent
     implements ControlValueAccessor, OnInit, OnChanges {

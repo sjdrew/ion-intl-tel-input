@@ -1,19 +1,19 @@
 
-$myFontSize: 16px;
+// $myFontSize: 16px;
 
-ion-item {
-    --padding-start: 0px;
-}
+// ion-item {
+//     --padding-start: 0px;
+// }
 
 // Example on adjusting font size
-ion-item {
-    font-size: $myFontSize;
-}
-ion-intl-tel-input {
-    font-size: $myFontSize;
-    ::ng-deep  {
-        .ion-intl-tel-input-code, .ion-intl-tel-input-flag {
-            font-size: $myFontSize;
-        }
-    }
-}
+// ion-item {
+//     font-size: $myFontSize;
+// }
+// ion-intl-tel-input {
+//     font-size: $myFontSize;
+//     ::ng-deep  {
+//         .ion-intl-tel-input-code, .ion-intl-tel-input-flag {
+//             font-size: $myFontSize;
+//         }
+//     }
+// }

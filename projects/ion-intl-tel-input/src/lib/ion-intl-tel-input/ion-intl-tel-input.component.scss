@@ -1,126 +1,165 @@
 :host {
-    // border: 1px solid red;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+}
 
-    // position: relative;
-    // width: 100%;
-    // contain: layout;
-    // display: block;
-   
-    ion-button {
-        color: var(--ion-color);
-        // margin: 0px;
-        // margin-left:15px;
-        // position: absolute;
-        // z-index: 3;
-    }        
-    // ::ng-deep div.native-wrapper  {
-    //     padding-left: 80px;
-    // }
-    ion-button::part(native) {
-        padding-inline-start: 0px;
-        padding-inline-end: 2px;
-        margin: 0px;
-        font-weight: normal;
+.ion-intl-tel-input-wrapper {
+    font-size: inherit; // override this to adjust font size of label, country picker, and input
+    
+    &.isDisabled {
+        ion-label, ion-button {
+            opacity: 0.3;
+        }
     }
-    // .fi {
-    //     margin-right: 5px;
-    // }
 
-    // align-items: center;
-
-    .ion-intl-tel-input-wrapper {
+    .ion-intl-tel-controls-wrapper {
         display: flex;
         align-items: center;
+        font-size: inherit;
+
+        ion-button::part(native) {
+            padding-inline-start: 0px;
+            padding-inline-end: 2px;
+            margin: 0px;
+            font-weight: normal;
+        }
+
+        .fi {
+            margin-right: 5px;
+        }
+    
+        .ion-intl-tel-input-btn {
+            flex: 0 0 auto;
+            color: var(--ion-color);
+            margin-right: 10px;
+            font-size: inherit;
+        }
+    
+        .ion-intl-tel-input-number {
+            flex: 0 0 auto;
+            ion-input {
+                min-height: 1em;
+            }
+        }
+
+        ion-intl-tel-input-flag {
+            font-size: inherit;
+        }
     }
 
-    .ion-intl-tel-input-btn {
-        flex: 0 0 auto;
-        color: var(--ion-color);
-        // border: 1px solid blue;
-        margin-right: 10px;
-
-        .ion-intl-tel-input-flag {
-            // border: 1px solid yellow;
-        }
-        .ion-intl-tel-input-code {
-            // border: 1px solid pink;
-        }
-        ion-icon {
-            // border: 1px solid purple;
-        }
+    &.field-outline {
+        border-radius: var(--border-radius, 4px);
+        border-color: var(--ion-color-step-300, #b3b3b3);
+        border-width: 1px;
+        border-style: solid;
+        padding-inline-start: var(--ion-padding, 16px);
+        padding-inline-end: var(--ion-padding, 16px);
+        padding-top: var(--ion-padding, 8px); // to accommodate button padding
+        padding-bottom: var(--ion-padding, 8px); // to accommodate button padding
     }
 
-    .ion-intl-tel-input-number {
-        flex: 0 0 auto;
-        // border: 1px solid green;
-        // padding-left: 80px;
-        ion-input {
-            // border: 1px solid orange;
-            // padding-left: 80px;
-            // min-height: 1em;
+    &.field-fill {
+        padding-inline-start: var(--ion-padding, 16px);
+        padding-inline-end: var(--ion-padding, 16px);
+        padding-top: var(--ion-padding, 8px); // to accommodate button padding
+        padding-bottom: var(--ion-padding, 8px); // to accommodate button padding
+
+        background-color: var(--ion-background-color-step-50);
+        border-color: var(--ion-background-color-step-500);
+        border-radius: var(--border-radius, 4px);
+      
+        min-height: 56px;
+    }
+
+    .label-stacked {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .label-start {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: var(--ion-margin, 16px);
+    }
+
+    .label-end-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+        .label-end {
+            text-align: right;
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-left: var(--ion-margin, 16px);
         }
     }
 }
 
-::ng-deep ion-intl-tel-input div > ion-input > label > .label-text-wrapper > .label-text  {
-    // display: none;
+::ng-deep ion-intl-tel-input:has(.label-end-wrapper) {
+    width: 100%;
+    .ion-intl-tel-controls-wrapper {
+        width: 100%;
+    }
 }
 
+::ng-deep ion-intl-tel-input:has(div.field-outline > ion-label)   {
+    .ion-intl-tel-input-wrapper  {
+        position: relative;
 
-// ion-item with v7 format label property
-// ::ng-deep ion-item > ion-intl-tel-input:has(div > ion-input > label)  {
-//     ion-button {
-//         top: 24px !important // note may need scale as depends on font size
-//     }
-//     .label-floating label.input-wrapper div.label-text-wrapper.sc-ion-input-md  {
-//         transform: translateY(15%) scale(0.75) !important;
-//     }
-//     div.native-wrapper  {
-//         padding-left: 94px !important;
-//     }
-// }
+        & > ion-label {
+            position: absolute;
+            top: 0;
+            left: 12px;
+            transform: translateY(-0.7em) scale(0.82);
+            background-color: var(--ion-background-color, #fff);
+            padding: 0 4px;
+        }
+    }
+}
 
+::ng-deep ion-intl-tel-input:has(div.field-fill > ion-label.label-stacked)   {
+    .ion-intl-tel-input-wrapper  {
+        position: relative;
+        padding-top: var(--ion-padding, 16px);
 
-// v7 ion-input only, but no [fill]
-// ::ng-deep :not(ion-item) > ion-intl-tel-input {
-//     ion-button {
-//         top: 20px !important // note may need scale as depends on font size
-//     }
-//     div.native-wrapper  {
-//         padding-left: 100px !important;
-//     }    
-// }
+        .label-stacked {
+            position: absolute;
+            transform: translateY(-0.7em) scale(0.82);
+        }
+    }
+}
 
-// v7 ion-input only,  [fill]='outline'
-// ::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-outline) {
-//     ion-button {
-//         top: 10px !important // note may need scale as depends on font size
-//     }
-//     div.native-wrapper  {
-//         padding-left: 84px !important;
-//     }    
-// }
+::ng-deep ion-item > ion-intl-tel-input:has(.ion-intl-tel-input-wrapper.field-fill)   {
+    .ion-intl-tel-input-wrapper.field-fill  {
+        border: none;
+        border-radius: none;
+        border-top-left-radius: var(--border-radius, 4px);
+        border-top-right-radius: var(--border-radius, 4px);
+        border-bottom: 1px solid var(--ion-background-color-step-500);
+        // padding-bottom: 0;
+        // min-height: unset;
+    }
+}
 
-// v7 ion-input only,  [fill]='solid'
-// ::ng-deep :not(ion-item) > ion-intl-tel-input:has(ion-input.input-fill-solid) {
-//     ion-button {
-//         top: 20px !important // note may need scale as depends on font size
-//     } 
-//     div.native-wrapper  {
-//         padding-left: 84px !important;
-//     }   
-// }
+::ng-deep :not(ion-item) > ion-intl-tel-input:has(.ion-intl-tel-input-wrapper.field-fill > .label-stacked)   {
+    .ion-intl-tel-input-wrapper.field-fill  {
+        border: none;
+        border-radius: none;
+        border-top-left-radius: var(--border-radius, 4px);
+        border-top-right-radius: var(--border-radius, 4px);
+        border-bottom: 1px solid var(--ion-background-color-step-500);
+        padding-bottom: 0;
+        min-height: unset;
 
-// ion-item with ion-label (legacy mode), use flex as ion-label tag is the wrapper
-// ::ng-deep ion-item > ion-intl-tel-input:has(.legacy-input) {
-//     contain:inherit;
-//     width: 100%;
-//     display: flex !important;
-//     align-items: center;
-//     ion-button {
-//        position:unset !important;
-//        top: unset;
-//     }
-// }
+        // &.isDisabled {
+        //     ion-label, ion-button {
+        //         opacity: unset;
+        //     }
+        // }
+    }
+}
+
