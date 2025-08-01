@@ -13,6 +13,7 @@ export class HomePage implements OnInit {
 
     phone = '+92 300 1234567';
     phone2 = '+1 403 6053099';
+    phone3 = '19834443711'; // Your specific test number
     form: UntypedFormGroup;
 
     defaultCountryIsoTest = 'ca';
@@ -56,9 +57,9 @@ export class HomePage implements OnInit {
                 IonIntlTelInputValidators.phone
             ]),
             phoneNumber3: new UntypedFormControl({
-                value: ''
+                value: '19834443711' // Your specific test number
             }, [
-                //  Validators.required,
+                Validators.required,
                 IonIntlTelInputValidators.phone
             ]),
         });

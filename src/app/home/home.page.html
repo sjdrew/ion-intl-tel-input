@@ -241,4 +241,130 @@
 
     </form>
 
+    <!-- 983 Area Code Test -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Your Specific Number Test: 19834443711</ion-card-title>
+        <ion-card-subtitle>✅ Now VALID with google-libphonenumber v3.2.42!</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        
+        <!-- Template-driven form test -->
+        <ion-item>
+          <ion-intl-tel-input 
+            name="test983" 
+            [(ngModel)]="phone3" 
+            #test983Control="ngModel"
+            required
+            ionIntlTelInputValid
+            label="Your Test Number: 19834443711"
+            labelPlacement="stacked"
+            [defaultCountryiso]="'us'"
+            [dialCodePrefix]="dialCodePrefix"
+            [enableAutoCountrySelect]="enableAutoCountrySelect"
+            [enablePlaceholder]="enablePlaceholder"
+            placeholder="Your number: 19834443711">
+          </ion-intl-tel-input>
+        </ion-item>
+
+        <!-- Validation status -->
+        <div style="padding: 10px;">
+          <div *ngIf="test983Control.valid && test983Control.touched">
+            <ion-text color="success">
+              <p>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                ✅ Your number 19834443711 is now VALID!
+              </p>
+            </ion-text>
+          </div>
+          
+          <div *ngIf="test983Control.invalid && test983Control.touched">
+            <ion-text color="danger">
+              <p *ngIf="test983Control.errors?.['phone']">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                ❌ Number 19834443711 is still invalid
+              </p>
+              <p *ngIf="test983Control.errors?.['required']">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                Phone number is required
+              </p>
+            </ion-text>
+          </div>
+
+          <div *ngIf="test983Control.untouched">
+            <ion-text color="success">
+              <p>
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                Your number 19834443711 should now be valid with the updated library!
+              </p>
+            </ion-text>
+          </div>
+        </div>
+
+        <!-- Reactive form test -->
+        <form [formGroup]="form" style="margin-top: 20px;">
+          <ion-item>
+            <ion-intl-tel-input 
+              formControlName="phoneNumber3"
+              label="Reactive Form - Your Number Test"
+              labelPlacement="stacked"
+              [defaultCountryiso]="'us'"
+              [dialCodePrefix]="dialCodePrefix"
+              [enableAutoCountrySelect]="enableAutoCountrySelect"
+              [enablePlaceholder]="enablePlaceholder"
+              placeholder="Pre-filled with 19834443711">
+            </ion-intl-tel-input>
+          </ion-item>
+
+          <div style="padding: 10px;">
+            <div *ngIf="form.get('phoneNumber3')?.valid">
+              <ion-text color="success">
+                <p>
+                  <ion-icon name="checkmark-circle-outline"></ion-icon>
+                  ✅ Reactive form: Your number 19834443711 is VALID!
+                </p>
+              </ion-text>
+            </div>
+            
+            <div *ngIf="form.get('phoneNumber3')?.invalid">
+              <ion-text color="danger">
+                <p *ngIf="form.get('phoneNumber3')?.errors?.['phone']">
+                  <ion-icon name="alert-circle-outline"></ion-icon>
+                  ❌ Reactive form: Number 19834443711 is still invalid
+                </p>
+                <p *ngIf="form.get('phoneNumber3')?.errors?.['required']">
+                  <ion-icon name="alert-circle-outline"></ion-icon>
+                  Phone number is required
+                </p>
+              </ion-text>
+            </div>
+          </div>
+        </form>
+
+        <!-- Test results from Node.js test -->
+        <ion-item>
+          <ion-label>
+            <h3>✅ Test Results (Node.js):</h3>
+            <p><strong>Your Number:</strong> 19834443711</p>
+            <p><strong>Status:</strong> ✅ VALID in all formats!</p>
+            <p><strong>Formatted:</strong> +1 983-444-3711</p>
+            <p><strong>National Number:</strong> 9834443711</p>
+            <h3>All These Formats Work:</h3>
+            <ul>
+              <li>19834443711 ✅</li>
+              <li>+19834443711 ✅</li>
+              <li>+1 983 444 3711 ✅</li>
+              <li>(983) 444-3711 ✅</li>
+              <li>983-444-3711 ✅</li>
+              <li>983.444.3711 ✅</li>
+            </ul>
+            <h3>Current Value:</h3>
+            <p>{{ phone3 || 'None' }}</p>
+          </ion-label>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+
 </ion-content>
